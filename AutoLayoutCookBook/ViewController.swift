@@ -48,22 +48,14 @@ class ViewController: UIViewController {
         self.move_button!.ezAnimateChage()
     }
     
-    func center(view:UIView){
-        view.ezClearConstraints()
-        view.ezRight(margin: 10)
-        view.ezAnimateChage()
-    }
+   
     @IBAction func centerAction(sender: AnyObject) {
-        self.removeRelatedConstraints()
-        self.center(self.move_button!)
+        self.move_button!.ezCenter()
+        self.move_button!.ezAnimateChage()
     }
     
     
     @IBAction func addUnder(sender: AnyObject) {
-        
-        //self.addViewUnderSameSize(self.move_button!)
-        //self.addViewOnTopSameSize(self.move_button!)
-        //self.addViewUnder(self.move_button!)
         
         self.move_button!.ezCenter()
         self.two!.ezSetUnder(self.move_button!, margin: 0)
@@ -79,9 +71,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sendTop(sender: AnyObject) {
-        self.removeRelatedConstraints()
-        
-        //self.move_button!.ezTopFill(margin: 5)
         self.move_button!.ezRightFill(margin: 5)
         self.move_button!.ezAnimateChage()
     }
