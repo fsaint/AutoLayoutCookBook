@@ -34,7 +34,7 @@ extension UIView {
         self.setTranslatesAutoresizingMaskIntoConstraints(false)
     }
     
-    //MARK: Utility methods to position a view in reltion to it's parent
+    //MARK: Utility methods to position a view in reltion to it's parent with no size change
     
     
     func _alignSuperView(vertical:String, horizontal:String,margin: Int = 0,attribute:NSLayoutAttribute? = nil){
@@ -63,7 +63,7 @@ extension UIView {
         
     }
 
-    func ezRightCenter(margin: Int = 0){
+    func ezRight(margin: Int = 0){
        
         self.ezClearConstraints()
         self._alignSuperView("V:[view(height)]", horizontal: "H:[view(width)]-margin-|", margin: margin, attribute: NSLayoutAttribute.CenterY)
@@ -139,6 +139,10 @@ extension UIView {
     
     }
     
+    
+    //MARK: Utility methods to position a view in reltion to it's parent and match parent size
+    
+    
     func ezFill(margin: Int = 0){
         var views: NSMutableDictionary = NSMutableDictionary()
         views["view"] = self
@@ -156,7 +160,46 @@ extension UIView {
     
     }
     
+    func ezTopFill(margin: Int = 0){
     
+        var views: NSMutableDictionary = NSMutableDictionary()
+        views["view"] = self
+        
+        var metrics = ["margin":margin,"height":self.frame.height]
+        
+        
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.superview!.addConstraints(v_constrains)
+        
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.superview!.addConstraints(h_constrains)
+    }
+    
+    func ezLeftFill(margin: Int = 0){
+        self._alignSuperView("V:|-margin-[view(height)]-margin-|", horizontal: "H:|-margin-[view(width)]", margin: 5)
+    }
+    
+    func ezRightFill(margin: Int = 0){
+        self._alignSuperView("V:|-margin-[view]-margin-|", horizontal: "H:[view(width)]-margin-|", margin: 5)
+    }
+    
+    func ezBottomFill(margin: Int = 0){
+        self.ezClearConstraints()
+        var views: NSMutableDictionary = NSMutableDictionary()
+        views["view"] = self
+        var metrics = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
+        
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.superview!.addConstraints(v_constrains)
+        
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.superview!.addConstraints(h_constrains)
+
+    }
     
     
     //MARK: Utility methods to position a view in reltion to a sibling

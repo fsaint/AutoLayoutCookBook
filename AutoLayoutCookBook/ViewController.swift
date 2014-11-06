@@ -33,168 +33,29 @@ class ViewController: UIViewController {
             self.move_button!.ezClearConstraints()
     }
     
-   
-    
     func fillWithMargin(view:UIView){
         self.move_button!.ezFill(margin: 10)
         self.move_button!.ezAnimateChage()
-
-    }
-    
-    
-    func addViewOnTopSameSize(view:UIView){
-        var new_view = UIView()
-        new_view.setTranslatesAutoresizingMaskIntoConstraints(false)
-        new_view.backgroundColor = UIColor.yellowColor()
-        var metrics = ["height":50,"margin":10]
-        self.view.addSubview(new_view)
-        
-        var views: NSMutableDictionary = NSMutableDictionary()
-        views["new_view"] = new_view
-        views["view"] = view
-        
-        
-        
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[new_view(height)]-margin-[view]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(v_constrains)
-        
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[new_view(==view)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(h_constrains)
-        
-        
-        
-        var constX = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: new_view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        self.view.addConstraint(constX)
-        
-        UIView.animateWithDuration(1.0, animations:{ () in
-            self.view.layoutIfNeeded()
-        })
-
-    
-    }
-    
-    
-    
-    func addViewUnder(view:UIView){
-        
-        var new_view = UIView()
-        new_view.frame = CGRect(x: 0, y: 0, width: 40, height: 20)
-        new_view.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-        new_view.backgroundColor = UIColor.greenColor()
-        
-        self.view.addSubview(new_view)
-        var views: NSMutableDictionary = NSMutableDictionary()
-        views["new_view"] = new_view
-        views["view"] = view
-        
-        var metrics = ["height":new_view.frame.height,"width":new_view.frame.width,"margin":10]
-        
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view]-margin-[new_view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(v_constrains)
-        
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[new_view(width)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(h_constrains)
-        
-        
-        var constX = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: new_view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        self.view.addConstraint(constX)
-        
-        UIView.animateWithDuration(1.0, animations:{ () in
-            self.view.layoutIfNeeded()
-        })
-
-
-        
-    }
-    func addViewUnderSameSize(view:UIView){
-    
-        var new_view = UIView()
-        new_view.setTranslatesAutoresizingMaskIntoConstraints(false)
-        new_view.backgroundColor = UIColor.yellowColor()
-        var metrics = ["height":50,"margin":10]
-        self.view.addSubview(new_view)
-        
-        var views: NSMutableDictionary = NSMutableDictionary()
-        views["new_view"] = new_view
-        views["view"] = view
-        
-    
-        
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view]-margin-[new_view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(v_constrains)
-        
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[new_view(==view)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(h_constrains)
-        
-        
-        
-        var constX = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: new_view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        self.view.addConstraint(constX)
-        
-        UIView.animateWithDuration(1.0, animations:{ () in
-            self.view.layoutIfNeeded()
-        })
-        
     }
     
     func stayLow(view:UIView){
-        var views: NSMutableDictionary = NSMutableDictionary()
-        views["view"] = view
-        
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(50)]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: views)
-        
-        self.view.addConstraints(v_constrains)
-        
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[view]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: views)
-        
-        self.view.addConstraints(h_constrains)
-        
-        
-        UIView.animateWithDuration(1.0, animations:{ () in
-            self.view.layoutIfNeeded()
-        })
-        
+        self.move_button!.ezBottomFill(margin: 5)
+        self.move_button!.ezAnimateChage()
     }
 
     func goHigh(view:UIView){
-        var views: NSMutableDictionary = NSMutableDictionary()
-        views["view"] = view
-        
-        var metrics = ["margin":10,"height":50]
-        
-        
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(v_constrains)
-        
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
-        
-        self.view.addConstraints(h_constrains)
-        
-        
-        UIView.animateWithDuration(1.0, animations:{ () in
-            self.view.layoutIfNeeded()
-        })
-
+        self.move_button!.ezTopFill(margin: 5)
+        self.move_button!.ezAnimateChage()
     }
     
     func center(view:UIView){
         view.ezClearConstraints()
-        view.ezRightCenter(margin: 10)
+        view.ezRight(margin: 10)
         view.ezAnimateChage()
     }
     @IBAction func centerAction(sender: AnyObject) {
         self.removeRelatedConstraints()
-        
         self.center(self.move_button!)
-        
     }
     
     
@@ -212,16 +73,16 @@ class ViewController: UIViewController {
         self.two!.ezAnimateChage()
     }
     @IBAction func sendBotom(sender: AnyObject) {
-        self.removeRelatedConstraints()
         
-        self.stayLow(self.move_button!)
+        self.move_button!.ezBottomFill(margin: 5)
+        self.move_button!.ezAnimateChage()
     }
 
     @IBAction func sendTop(sender: AnyObject) {
         self.removeRelatedConstraints()
         
-        self.move_button!.ezTopLeft(margin: 0)
-        
+        //self.move_button!.ezTopFill(margin: 5)
+        self.move_button!.ezRightFill(margin: 5)
         self.move_button!.ezAnimateChage()
     }
    
@@ -239,6 +100,36 @@ class ViewController: UIViewController {
         self.removeRelatedConstraints()
         self.fillWithMargin(self.move_button!)
       
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        var point: CGPoint = touches.anyObject()!.locationInView(self.view)
+        
+        var w3 = self.view.frame.width / 3.0
+        var h3 = self.view.frame.height/3.0
+        
+        if point.x < w3  && point.y < h3 {
+            self.move_button!.ezTopLeft(margin: 5)
+        }else if point.x < 2 * w3 && point.y < h3{
+            self.move_button!.ezTop(margin: 5)
+        }else if point.x > 2 * w3 && point.y < h3{
+            self.move_button!.ezTopRight(margin: 5)
+        } else if point.x < w3 &&   point.y > 2 * h3{
+            self.move_button!.ezBottomLeft(margin: 5)
+        }else if point.x < 2 * w3 &&   point.y > 2 * h3{
+            self.move_button!.ezBottom(margin: 5)
+        }else if point.x > 2 * w3 &&  point.y > 2 * h3{
+            self.move_button!.ezBottomRight(margin: 5)
+        }else if point.x < w3 && point.y >  h3{
+            self.move_button!.ezLeft(margin: 5)
+        }else if point.x > 2 * w3 && point.y >  h3{
+            self.move_button!.ezRight(margin: 5)
+        }else{
+            self.move_button!.ezCenter()
+        }
+        
+        
+        self.move_button!.ezAnimateChage()
     }
 }
 
