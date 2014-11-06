@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB0-dJ-BSh">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <rect key="frame" x="208" y="170" width="184" height="30"/>
                                 <color key="backgroundColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="One">
                                     <color key="titleColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,9 +81,40 @@
                                     <action selector="centerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LhB-lC-YJd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kde-j0-e6R">
+                                <rect key="frame" x="25" y="524" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="imd-QF-YQ7"/>
+                                    <constraint firstAttribute="height" constant="30" id="sy1-1l-tta"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addUnder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kBv-C0-dRc"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPj-Ld-DiF">
+                                <rect key="frame" x="230" y="231" width="70" height="97"/>
+                                <color key="backgroundColor" red="0.50196081399917603" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOO-YD-vj1">
+                                <rect key="frame" x="89" y="164" width="70" height="97"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="76H-Hr-Lgm">
+                                <rect key="frame" x="270" y="53" width="70" height="97"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="as8-41-wSL">
+                                <rect key="frame" x="412" y="158" width="70" height="97"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Z3x-p8-JUC" firstAttribute="top" secondItem="Kde-j0-e6R" secondAttribute="bottom" constant="8" id="Jet-M3-Lba"/>
+                            <constraint firstItem="Kde-j0-e6R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="QZx-A2-E2b"/>
                             <constraint firstItem="Kgt-FT-3No" firstAttribute="leading" secondItem="Z3x-p8-JUC" secondAttribute="trailing" constant="14" id="Xht-UC-nGt"/>
                             <constraint firstItem="mb6-4k-oEZ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="dVp-zk-WTF"/>
                             <constraint firstItem="Z3x-p8-JUC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fxC-Lm-7mq"/>
@@ -96,12 +127,16 @@
                     </view>
                     <connections>
                         <outlet property="applyContrain" destination="Z3x-p8-JUC" id="l7j-Mh-gXh"/>
+                        <outlet property="four" destination="as8-41-wSL" id="Ox5-HI-vOr"/>
                         <outlet property="move_button" destination="cB0-dJ-BSh" id="WSM-6P-zir"/>
+                        <outlet property="one" destination="76H-Hr-Lgm" id="BuC-Fi-ZwX"/>
+                        <outlet property="three" destination="hOO-YD-vj1" id="ZLW-IQ-07X"/>
+                        <outlet property="two" destination="JPj-Ld-DiF" id="Zif-7M-HuU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="111"/>
+            <point key="canvasLocation" x="198" y="113"/>
         </scene>
     </scenes>
 </document>

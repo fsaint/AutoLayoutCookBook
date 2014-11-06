@@ -8,9 +8,14 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
+    @IBOutlet var one: UIView!
+    @IBOutlet var two: UIView!
     @IBOutlet weak var move_button: UIButton!
+    @IBOutlet var four: UIView!
+    @IBOutlet var three: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,48 +30,118 @@ class ViewController: UIViewController {
 
     
     func removeRelatedConstraints(){
-        
-        for c in self.view.constraints(){
-            
-            if let const = c as? NSLayoutConstraint {
-                if (const.firstItem === self.move_button!){
-                    self.view.removeConstraint(const)
-                }
-                
-                if (const.secondItem === self.move_button!){
-                    self.view.removeConstraint(const)
-                }
-                
-            }
-            
-            
-            
-        }
-        
-        self.move_button!.removeConstraints(self.move_button!.constraints())
-        
-        self.move_button!.setTranslatesAutoresizingMaskIntoConstraints(false)
+            self.move_button!.ezClearConstraints()
     }
     
    
     
     func fillWithMargin(view:UIView){
+        self.move_button!.ezFill(margin: 10)
+        self.move_button!.ezAnimateChage()
+
+    }
+    
+    
+    func addViewOnTopSameSize(view:UIView){
+        var new_view = UIView()
+        new_view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        new_view.backgroundColor = UIColor.yellowColor()
+        var metrics = ["height":50,"margin":10]
+        self.view.addSubview(new_view)
+        
         var views: NSMutableDictionary = NSMutableDictionary()
+        views["new_view"] = new_view
         views["view"] = view
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[view]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: views)
+        
+        
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[new_view(height)]-margin-[view]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
         
         self.view.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[view]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: views)
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[new_view(==view)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
         
         self.view.addConstraints(h_constrains)
         
+        
+        
+        var constX = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: new_view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        self.view.addConstraint(constX)
         
         UIView.animateWithDuration(1.0, animations:{ () in
             self.view.layoutIfNeeded()
         })
 
+    
+    }
+    
+    
+    
+    func addViewUnder(view:UIView){
+        
+        var new_view = UIView()
+        new_view.frame = CGRect(x: 0, y: 0, width: 40, height: 20)
+        new_view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        new_view.backgroundColor = UIColor.greenColor()
+        
+        self.view.addSubview(new_view)
+        var views: NSMutableDictionary = NSMutableDictionary()
+        views["new_view"] = new_view
+        views["view"] = view
+        
+        var metrics = ["height":new_view.frame.height,"width":new_view.frame.width,"margin":10]
+        
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view]-margin-[new_view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.view.addConstraints(v_constrains)
+        
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[new_view(width)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.view.addConstraints(h_constrains)
+        
+        
+        var constX = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: new_view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        self.view.addConstraint(constX)
+        
+        UIView.animateWithDuration(1.0, animations:{ () in
+            self.view.layoutIfNeeded()
+        })
+
+
+        
+    }
+    func addViewUnderSameSize(view:UIView){
+    
+        var new_view = UIView()
+        new_view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        new_view.backgroundColor = UIColor.yellowColor()
+        var metrics = ["height":50,"margin":10]
+        self.view.addSubview(new_view)
+        
+        var views: NSMutableDictionary = NSMutableDictionary()
+        views["new_view"] = new_view
+        views["view"] = view
+        
+    
+        
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view]-margin-[new_view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.view.addConstraints(v_constrains)
+        
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[new_view(==view)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        
+        self.view.addConstraints(h_constrains)
+        
+        
+        
+        var constX = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: new_view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        self.view.addConstraint(constX)
+        
+        UIView.animateWithDuration(1.0, animations:{ () in
+            self.view.layoutIfNeeded()
+        })
+        
     }
     
     func stayLow(view:UIView){
@@ -92,7 +167,6 @@ class ViewController: UIViewController {
         var views: NSMutableDictionary = NSMutableDictionary()
         views["view"] = view
         
-        
         var metrics = ["margin":10,"height":50]
         
         
@@ -112,32 +186,9 @@ class ViewController: UIViewController {
     }
     
     func center(view:UIView){
-        
-        
-        var views: NSMutableDictionary = NSMutableDictionary()
-        views["view"] = view
-        
-        
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(50)]", options: NSLayoutFormatOptions(0), metrics: nil, views: views)
-        
-        self.view.addConstraints(v_constrains)
-        
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[view(200)]", options: NSLayoutFormatOptions(0), metrics: nil, views: views)
-        
-        self.view.addConstraints(h_constrains)
-        
-        
-        var constX = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        self.view.addConstraint(constX)
-        
-        var constY = NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
-        self.view.addConstraint(constY)
-        
-        
-        UIView.animateWithDuration(1.0, animations:{ () in
-            self.view.layoutIfNeeded()
-        })
-    
+        view.ezClearConstraints()
+        view.ezRightCenter(margin: 10)
+        view.ezAnimateChage()
     }
     @IBAction func centerAction(sender: AnyObject) {
         self.removeRelatedConstraints()
@@ -146,6 +197,20 @@ class ViewController: UIViewController {
         
     }
     
+    
+    @IBAction func addUnder(sender: AnyObject) {
+        
+        //self.addViewUnderSameSize(self.move_button!)
+        //self.addViewOnTopSameSize(self.move_button!)
+        //self.addViewUnder(self.move_button!)
+        
+        self.move_button!.ezCenter()
+        self.two!.ezSetUnder(self.move_button!, margin: 0)
+        self.one!.ezSetOver(self.move_button!, margin: 0)
+        self.three!.ezSetRightOf(self.move_button!, margin: 0)
+        self.four!.ezSetLeftOf(self.move_button!, margin: 0)
+        self.two!.ezAnimateChage()
+    }
     @IBAction func sendBotom(sender: AnyObject) {
         self.removeRelatedConstraints()
         
@@ -155,7 +220,9 @@ class ViewController: UIViewController {
     @IBAction func sendTop(sender: AnyObject) {
         self.removeRelatedConstraints()
         
-        self.goHigh(self.move_button!)
+        self.move_button!.ezTopLeft(margin: 0)
+        
+        self.move_button!.ezAnimateChage()
     }
    
     @IBAction func addSon(sender: AnyObject) {
