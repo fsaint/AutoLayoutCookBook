@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,58 +17,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3x-p8-JUC">
-                                <rect key="frame" x="16" y="562" width="64" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6L-us-kIF">
+                                <rect key="frame" x="494" y="562" width="90" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="OAi-gG-bRO"/>
-                                    <constraint firstAttribute="width" constant="64" id="XRO-h9-meA"/>
+                                    <constraint firstAttribute="width" constant="90" id="rRc-aq-etg"/>
+                                    <constraint firstAttribute="height" constant="30" id="zs9-tN-S45"/>
                                 </constraints>
-                                <state key="normal" title="Fill">
+                                <state key="normal" title="Detatch">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="applyContrains:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hgf-gl-cdt"/>
+                                    <action selector="detatch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SmG-hf-3Ie"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgt-FT-3No">
-                                <rect key="frame" x="94" y="562" width="79" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="79" id="3dH-Xc-6N4"/>
-                                    <constraint firstAttribute="height" constant="30" id="MEQ-jv-khR"/>
-                                </constraints>
-                                <state key="normal" title="Top">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendTop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qvO-UP-R9q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMe-9U-Duw">
-                                <rect key="frame" x="181" y="562" width="79" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="HQP-gn-Bw5"/>
-                                    <constraint firstAttribute="width" constant="79" id="LYY-2R-uCL"/>
-                                </constraints>
-                                <state key="normal" title="Bottom">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendBotom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YeP-jZ-MdB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mb6-4k-oEZ">
-                                <rect key="frame" x="492" y="562" width="92" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="0mD-gK-Zv5"/>
-                                    <constraint firstAttribute="height" constant="30" id="Ifc-EP-KRp"/>
-                                </constraints>
-                                <state key="normal" title="Center">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="centerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zvg-vF-Ea4"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="76H-Hr-Lgm">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="as8-41-wSL">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOO-YD-vj1">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPj-Ld-DiF">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.50196081399917603" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB0-dJ-BSh">
                                 <rect key="frame" x="208" y="170" width="184" height="30"/>
                                 <color key="backgroundColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,51 +58,34 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kde-j0-e6R">
-                                <rect key="frame" x="25" y="524" width="46" height="30"/>
+                                <rect key="frame" x="25" y="562" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="imd-QF-YQ7"/>
-                                    <constraint firstAttribute="height" constant="30" id="sy1-1l-tta"/>
+                                    <constraint firstAttribute="height" constant="30" id="V1X-ul-nSh"/>
+                                    <constraint firstAttribute="width" constant="46" id="Z1z-cZ-os7"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Attach">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="addUnder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kBv-C0-dRc"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPj-Ld-DiF">
-                                <rect key="frame" x="230" y="231" width="70" height="97"/>
-                                <color key="backgroundColor" red="0.50196081399917603" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOO-YD-vj1">
-                                <rect key="frame" x="89" y="164" width="70" height="97"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="76H-Hr-Lgm">
-                                <rect key="frame" x="270" y="53" width="70" height="97"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="as8-41-wSL">
-                                <rect key="frame" x="412" y="158" width="70" height="97"/>
-                                <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Z3x-p8-JUC" firstAttribute="top" secondItem="Kde-j0-e6R" secondAttribute="bottom" constant="8" id="Jet-M3-Lba"/>
+                            <constraint firstItem="j6L-us-kIF" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="CQ2-Pj-SUt"/>
+                            <constraint firstAttribute="centerX" secondItem="Kde-j0-e6R" secondAttribute="centerX" constant="-5" id="JAP-r2-zj1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="j6L-us-kIF" secondAttribute="bottom" constant="8" id="NB4-Zs-Szu"/>
                             <constraint firstItem="Kde-j0-e6R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="QZx-A2-E2b"/>
-                            <constraint firstItem="Kgt-FT-3No" firstAttribute="leading" secondItem="Z3x-p8-JUC" secondAttribute="trailing" constant="14" id="Xht-UC-nGt"/>
-                            <constraint firstItem="mb6-4k-oEZ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="dVp-zk-WTF"/>
-                            <constraint firstItem="Z3x-p8-JUC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fxC-Lm-7mq"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Z3x-p8-JUC" secondAttribute="bottom" constant="8" id="gSY-pv-pna"/>
-                            <constraint firstItem="CMe-9U-Duw" firstAttribute="leading" secondItem="Kgt-FT-3No" secondAttribute="trailing" constant="8" id="jZa-Wm-V74"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CMe-9U-Duw" secondAttribute="bottom" constant="8" id="r9M-vg-uXq"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="mb6-4k-oEZ" secondAttribute="bottom" constant="8" id="veF-5Y-cLj"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kgt-FT-3No" secondAttribute="bottom" constant="8" id="xTW-DC-bf2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kde-j0-e6R" secondAttribute="bottom" constant="8" id="jPI-t1-X9a"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JAP-r2-zj1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="applyContrain" destination="Z3x-p8-JUC" id="l7j-Mh-gXh"/>
                         <outlet property="four" destination="as8-41-wSL" id="Ox5-HI-vOr"/>
                         <outlet property="move_button" destination="cB0-dJ-BSh" id="WSM-6P-zir"/>
                         <outlet property="one" destination="76H-Hr-Lgm" id="BuC-Fi-ZwX"/>
