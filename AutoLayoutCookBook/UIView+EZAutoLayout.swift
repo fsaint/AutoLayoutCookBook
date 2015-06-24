@@ -43,11 +43,11 @@ extension UIView {
         var views: NSMutableDictionary = NSMutableDictionary()
         views["view"] = self
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(h_constrains)
     
@@ -117,11 +117,11 @@ extension UIView {
         
         
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[view(width)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[view(width)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(h_constrains)
         
@@ -147,11 +147,11 @@ extension UIView {
         var metrics = ["margin":margin]
 
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(h_constrains)
     
@@ -165,11 +165,11 @@ extension UIView {
         var metrics = ["margin":margin,"height":self.frame.height]
         
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(h_constrains)
     }
@@ -188,11 +188,11 @@ extension UIView {
         views["view"] = self
         var metrics = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(h_constrains)
 
@@ -211,11 +211,11 @@ extension UIView {
         views["under"] = self
         views["view"] = view
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(0), metrics: metrics, views: views)
+        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
         
         self.superview!.addConstraints(h_constrains)
         
