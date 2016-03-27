@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 extension UIView {
     func ezClearConstraints(){
-        self.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.translatesAutoresizingMaskIntoConstraints = false
         
-        for c in self.superview!.constraints(){
+        for c in self.superview!.constraints{
             
             if let const = c as? NSLayoutConstraint {
                 if (const.firstItem === self && (const.secondItem === self.superview || const.secondItem == nil) ){
@@ -26,7 +26,7 @@ extension UIView {
         }
 
         
-        self.removeConstraints(self.constraints())
+        self.removeConstraints(self.constraints)
         
         
     }
@@ -37,23 +37,23 @@ extension UIView {
     func _alignSuperView(vertical:String, horizontal:String,margin: Int = 0,attribute:NSLayoutAttribute? = nil){
         self.ezClearConstraints()
         
-        var metrics = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
+        let metrics:[String : AnyObject] = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
         
         
-        var views: NSMutableDictionary = NSMutableDictionary()
+        var views: [String : AnyObject] = [:]
         views["view"] = self
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views )
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics , views: views)
         
         self.superview!.addConstraints(h_constrains)
     
         
         if let att = attribute{
-            var constX = NSLayoutConstraint(item: self, attribute: att, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: att, multiplier: 1, constant: 0)
+            let constX = NSLayoutConstraint(item: self, attribute: att, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: att, multiplier: 1, constant: 0)
             self.superview!.addConstraint(constX)
         }
         
@@ -105,9 +105,9 @@ extension UIView {
     func ezCenter(width:Int? = nil, height:Int? = nil){
         self.ezClearConstraints()
         
-        var views: NSMutableDictionary = NSMutableDictionary()
+        var views: [String : AnyObject] = [:]
         views["view"] = self
-        var metrics = [
+        let metrics = [
             "width": (width != nil ? width! : Int(self.frame.width)),
             "height": (height != nil ? height! : Int(self.frame.height))
         ]
@@ -117,19 +117,19 @@ extension UIView {
         
         
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
+        let v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views )
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[view(width)]", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
+        let h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:[view(width)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views )
         
         self.superview!.addConstraints(h_constrains)
         
         
-        var constX = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        let constX = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
         self.superview!.addConstraint(constX)
         
-        var constY = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        let constY = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
         self.superview!.addConstraint(constY)
         
     
@@ -141,17 +141,17 @@ extension UIView {
     
     func ezFill(margin: Int = 0){
         self.ezClearConstraints()
-        var views: NSMutableDictionary = NSMutableDictionary()
+        var views: [String : AnyObject] = [:]
         views["view"] = self
         
-        var metrics = ["margin":margin]
+        let metrics = ["margin":margin]
 
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
+        let v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views)
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics, views: views as [NSObject : AnyObject])
+        let h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views)
         
         self.superview!.addConstraints(h_constrains)
     
@@ -159,17 +159,17 @@ extension UIView {
     
     func ezTopFill(margin: Int = 0){
         self.ezClearConstraints()
-        var views: NSMutableDictionary = NSMutableDictionary()
+        var views: [String : AnyObject] = [:]
         views["view"] = self
         
-        var metrics = ["margin":margin,"height":self.frame.height]
+        let metrics: [String : AnyObject]  = ["margin":margin,"height":self.frame.height]
         
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view(height)]", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:|-margin-[view(height)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics , views: views)
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics , views: views)
         
         self.superview!.addConstraints(h_constrains)
     }
@@ -184,15 +184,15 @@ extension UIView {
     
     func ezBottomFill(margin: Int = 0){
         self.ezClearConstraints()
-        var views: NSMutableDictionary = NSMutableDictionary()
+        var views: [String : AnyObject] = [:]
         views["view"] = self
-        var metrics = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
+        let metrics:  [String: AnyObject] = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("V:[view(height)]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics , views: views )
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat("H:|-margin-[view]-margin-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics , views: views )
         
         self.superview!.addConstraints(h_constrains)
 
@@ -204,24 +204,23 @@ extension UIView {
     func _sameSizeXAligned(view:UIView,vertical:String, horizontal:String,margin: Int = 0,attribute:NSLayoutAttribute){
         self.ezClearConstraints()
         
-        var metrics = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
+        let metrics: [String: AnyObject] = ["width":self.frame.width,"height":self.frame.height,"margin":margin]
         
-        
-        var views: NSMutableDictionary = NSMutableDictionary()
+        var views: [String : AnyObject] = [:]
         views["under"] = self
         views["view"] = view
         
-        var v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let v_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(vertical, options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics , views: views)
         
         self.superview!.addConstraints(v_constrains)
         
-        var h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(0), metrics: metrics as [NSObject : AnyObject], views: views as [NSObject : AnyObject])
+        let h_constrains  = NSLayoutConstraint.constraintsWithVisualFormat(horizontal, options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views)
         
         self.superview!.addConstraints(h_constrains)
         
         
         
-        var constX = NSLayoutConstraint(item: view, attribute: attribute, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: attribute, multiplier: 1, constant: 0)
+        let constX = NSLayoutConstraint(item: view, attribute: attribute, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: attribute, multiplier: 1, constant: 0)
         self.superview!.addConstraint(constX)
         
         

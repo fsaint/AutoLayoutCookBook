@@ -21,12 +21,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // One Tap
-        var tap = UITapGestureRecognizer(target: self, action: Selector("tapDelected:"))
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapDelected:"))
         tap.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tap)
         
         // Double Tap
-        var dtap = UITapGestureRecognizer(target: self, action: Selector("doubleTapDelected:"))
+        let dtap = UITapGestureRecognizer(target: self, action: Selector("doubleTapDelected:"))
         dtap.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(dtap)
         tap.requireGestureRecognizerToFail(dtap)
@@ -43,16 +43,16 @@ class ViewController: UIViewController {
         var h3 = self.view.frame.height/3.0
         
         if point.y < h3{
-            self.move_button!.ezTopFill(margin: 10)
+            self.move_button!.ezTopFill(10)
             
         }else if (point.y > 2*h3){
-            self.move_button!.ezBottomFill(margin: 10)
+            self.move_button!.ezBottomFill(10)
         }else if (point.x < w3){
-            self.move_button!.ezLeftFill(margin: 10)
+            self.move_button!.ezLeftFill(10)
         }else if (point.x > 2*w3){
-            self.move_button!.ezRightFill(margin: 10)
+            self.move_button!.ezRightFill(10)
         }else{
-            self.move_button!.ezFill(margin: 10)
+            self.move_button!.ezFill(10)
         }
         
         self.move_button!.ezAnimateChage()
@@ -66,21 +66,21 @@ class ViewController: UIViewController {
         var h3 = self.view.frame.height/3.0
         
         if point.x < w3  && point.y < h3 {
-            self.move_button!.ezTopLeft(margin: 5)
+            self.move_button!.ezTopLeft(5)
         }else if point.x < 2 * w3 && point.y < h3{
-            self.move_button!.ezTop(margin: 5)
+            self.move_button!.ezTop(5)
         }else if point.x > 2 * w3 && point.y < h3{
-            self.move_button!.ezTopRight(margin: 5)
+            self.move_button!.ezTopRight(5)
         } else if point.x < w3 &&   point.y > 2 * h3{
-            self.move_button!.ezBottomLeft(margin: 5)
+            self.move_button!.ezBottomLeft(5)
         }else if point.x < 2 * w3 &&   point.y > 2 * h3{
-            self.move_button!.ezBottom(margin: 5)
+            self.move_button!.ezBottom(5)
         }else if point.x > 2 * w3 &&  point.y > 2 * h3{
-            self.move_button!.ezBottomRight(margin: 5)
+            self.move_button!.ezBottomRight(5)
         }else if point.x < w3 && point.y >  h3{
-            self.move_button!.ezLeft(margin: 5)
+            self.move_button!.ezLeft(5)
         }else if point.x > 2 * w3 && point.y >  h3{
-            self.move_button!.ezRight(margin: 5)
+            self.move_button!.ezRight(5)
         }else{
             self.move_button!.ezCenter()
         }
@@ -103,31 +103,31 @@ class ViewController: UIViewController {
     }
     
     func fillWithMargin(view:UIView){
-        self.move_button!.ezFill(margin: 10)
+        self.move_button!.ezFill(10)
         self.move_button!.ezAnimateChage()
     }
     
     func stayLow(view:UIView){
-        self.move_button!.ezBottomFill(margin: 5)
+        self.move_button!.ezBottomFill(5)
         self.move_button!.ezAnimateChage()
     }
 
     func goHigh(view:UIView){
-        self.move_button!.ezTopFill(margin: 5)
+        self.move_button!.ezTopFill(5)
         self.move_button!.ezAnimateChage()
     }
     
    
     @IBAction func centerAction(sender: AnyObject) {
-        self.move_button!.ezCenter(width:200,height:100)
+        self.move_button!.ezCenter(200,height:100)
         self.move_button!.ezAnimateChage()
     }
     
     @IBAction func detatch(sender: AnyObject) {
-        self.one!.ezTopLeft(margin: 0)
-        self.two!.ezTopRight(margin: 0)
-        self.three!.ezBottomLeft(margin: 0)
-        self.four!.ezBottomRight(margin: 0)
+        self.one!.ezTopLeft(0)
+        self.two!.ezTopRight(0)
+        self.three!.ezBottomLeft(0)
+        self.four!.ezBottomRight(0)
         self.view.ezAnimateChage()
         
     }
